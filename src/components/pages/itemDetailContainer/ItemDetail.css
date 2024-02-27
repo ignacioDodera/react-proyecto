@@ -1,0 +1,31 @@
+.containerItemDetail {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.containerImage {
+  width: 32%;
+  display: flex;
+  justify-content: center;
+}
+.containerImage > img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.containerDetail {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 200px;
+  color: black;
+
+  border-radius: 1%;
+  border-color: black;
+}
