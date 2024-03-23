@@ -49,16 +49,17 @@ const CartContextProvider = ({ children }) => {
   };
 
   const getTotalItems = () => {
+    console.log(cart);
     let totalItems = cart.reduce((acc, elemento) => {
       return acc + elemento.quantity;
-    }, 0);
+    });
     return totalItems;
   };
 
   const getTotalPrice = () => {
     let total = cart.reduce((acc, elemento) => {
       return acc + elemento.quantity * elemento.costo;
-    }, 0);
+    });
 
     return total;
   };
