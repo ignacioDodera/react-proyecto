@@ -1,14 +1,5 @@
 export let products = [
   {
-    tituloProduct: "Ron BACARDI Carta BLANCA",
-    costo: 650,
-    descripcion:
-      "Beber con moderación. Prohibida su venta a menores de 18 años.",
-    img: "https://res.cloudinary.com/dfxzcxic6/image/upload/v1709046515/75f26951-57a0-4ee8-8b0d-c15ffa55e4f1_vzwrvx.jpg",
-    stock: 12,
-    category: "RON",
-  },
-  {
     tituloProduct: "Blue Label",
     costo: 500,
     descripcion:

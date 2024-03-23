@@ -48,18 +48,17 @@ const CartContextProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(nuevo));
   };
 
-  const getTotalItems = () => {
-    console.log(cart);
+  function getTotalItems() {
     let totalItems = cart.reduce((acc, elemento) => {
       return acc + elemento.quantity;
-    });
+    }, 0);
     return totalItems;
-  };
+  }
 
   const getTotalPrice = () => {
     let total = cart.reduce((acc, elemento) => {
       return acc + elemento.quantity * elemento.costo;
-    });
+    }, 0);
 
     return total;
   };
