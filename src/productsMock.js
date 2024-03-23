@@ -1,16 +1,5 @@
 export let products = [
   {
-    id: 1,
-    tituloProduct: "Ron BACARDI Carta ORO",
-    costo: 700,
-    descripcion:
-      "Beber con moderación. Prohibida su venta a menores de 18 años.",
-    img: "https://res.cloudinary.com/dfxzcxic6/image/upload/v1708263151/Ron-BACARDI-oro-750-ml-0_dsszrg.webp",
-    stock: 12,
-    category: "RON",
-  },
-  {
-    id: 2,
     tituloProduct: "Ron BACARDI Carta BLANCA",
     costo: 650,
     descripcion:
@@ -20,24 +9,13 @@ export let products = [
     category: "RON",
   },
   {
-    id: 3,
-    tituloProduct: "Red Label",
-    costo: 1000,
-    descripcion:
-      "Beber con moderación. Prohibida su venta a menores de 18 años.",
-    img: "https://res.cloudinary.com/dfxzcxic6/image/upload/v1708263166/johnnie-walker-red-label-johnnie-walker-red-label_bsecue.jpg",
-    stock: 12,
-    category: "WHISKY",
-  },
-  {
-    id: 4,
-    tituloProduct: "Smirnoff",
+    tituloProduct: "Blue Label",
     costo: 500,
     descripcion:
       "Beber con moderación. Prohibida su venta a menores de 18 años.",
-    img: "https://res.cloudinary.com/dfxzcxic6/image/upload/v1709046195/0002176_smirnoff-red-no21-vodka-1-litre_svqxvz.jpg",
+    img: "https://res.cloudinary.com/dfxzcxic6/image/upload/v1711229060/J.Walker-blue-clasico_zewkr1.jpg",
     stock: 12,
-    category: "VODKA",
+    category: "WHISKY",
   },
 ];
 

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../productsMock";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-
+import { db } from "../../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { CardSkeleton } from "../../common/CardSkeleton";
 const ItemListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
@@ -10,28 +11,56 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getProducts().then((resp) => {
-      if (category) {
-        const productsFilter = resp.filter(
-          (product) => product.category === category
-        );
-        setProducts(productsFilter);
-      } else {
-        setProducts(resp);
-      }
 
-      setIsLoading(false);
-    });
+    let productsCollection = collection(db, "products");
+
+    let consulta;
+
+    if (category) {
+      let productColectionFiltered = query(
+        productsCollection,
+        where("category", "==", category)
+      );
+
+      consulta = productColectionFiltered;
+    } else {
+      consulta = productsCollection;
+    }
+
+    getDocs(consulta)
+      .then((res) => {
+        let arrayBien = res.docs.map((elemento) => {
+          return { ...elemento.data(), id: elemento.id };
+        });
+
+        setProducts(arrayBien);
+      })
+
+      .finally(() => setIsLoading(false));
   }, [category]);
 
+  if (isLoading) {
+    return (
+      <div className="cards-container">
+        {category ? (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        ) : (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        )}
+      </div>
+    );
+  }
   return (
-    <>
-      {isLoading ? (
-        <h2>Cargando productos...</h2>
-      ) : (
-        <ItemList products={products} />
-      )}
-    </>
+    // return con ternario
+    <ItemList products={products} />
   );
 };
 
